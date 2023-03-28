@@ -1,5 +1,17 @@
 module reader
 
+pub fn (mut reader Reader) read_u16() u16 {
+	defer {
+		reader.offset += int(sizeof(u16))
+	}
+
+	bytes := reader.bytes
+	offset := &reader.offset
+
+	return bytes[*offset] |
+	( u16(bytes[*offset + 0x1]) << 8  )
+}
+
 pub fn (mut reader Reader) read_u32() u32 {
 	defer {
 		reader.offset += int(sizeof(u32))

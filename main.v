@@ -26,6 +26,9 @@ fn denary_conversion()  {
 	println(r.read_u32())
 	println(r.read_i64())
 	println(r.read_u64())
+	println(r.read_i16())
+	println(r.read_u16())
+
 	os.input('')
 }
 
@@ -42,6 +45,8 @@ fn hexadecimal_conversion() ! {
 	println(r.read_u32())
 	println(r.read_i64())
 	println(r.read_u64())
+	println(r.read_i16())
+	println(r.read_u16())
 
 	os.input('')
 }
