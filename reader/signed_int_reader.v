@@ -21,7 +21,7 @@ pub fn (mut reader Reader) read_i16() i16 {
 // read_i32 reads four bytes of data from reader.bytes and returns them as an i32, then increments reader.offset accordingly.
 pub fn (mut reader Reader) read_i32() i32 {
 	size := sizeof(i32)
-
+	
 	reader.is_oob(size)
 	if reader.oob { return 0 }
 
