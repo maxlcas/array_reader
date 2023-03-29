@@ -1,5 +1,6 @@
 module reader
 
+// read_i16 reads two bytes of data from reader.bytes and returns them as an i16, then increments reader.offset accordingly.
 pub fn (mut reader Reader) read_i16() i16 {
 	size := sizeof(i16)
 
@@ -17,7 +18,7 @@ pub fn (mut reader Reader) read_i16() i16 {
 	( i16(bytes[*offset + 0x1]) << 8  )
 }
 
-
+// read_i32 reads four bytes of data from reader.bytes and returns them as an i32, then increments reader.offset accordingly.
 pub fn (mut reader Reader) read_i32() i32 {
 	size := sizeof(i32)
 
@@ -37,6 +38,7 @@ pub fn (mut reader Reader) read_i32() i32 {
 	( int(bytes[*offset + 0x3]) << 24 )
 }
 
+// read_i64 reads eight bytes of data from reader.bytes and returns them as an i64, then increments reader.offset accordingly.
 pub fn (mut reader Reader) read_i64() i64 {
 	size := sizeof(i64)
 
