@@ -1,8 +1,13 @@
 module reader
 
 pub fn (mut reader Reader) read_u16() u16 {
+	size := sizeof(u16)
+
+	reader.is_oob(size)
+	if reader.oob { return 0 }
+
 	defer {
-		reader.offset += int(sizeof(u16))
+		reader.add_offset(sizeof(size))
 	}
 
 	bytes := reader.bytes
@@ -13,9 +18,15 @@ pub fn (mut reader Reader) read_u16() u16 {
 }
 
 pub fn (mut reader Reader) read_u32() u32 {
+	size := sizeof(u32)
+
+	reader.is_oob(size)
+	if reader.oob { return 0 }
+
 	defer {
-		reader.offset += int(sizeof(u32))
+		reader.add_offset(size)
 	}
+
 
 	bytes := reader.bytes
 	offset := &reader.offset
@@ -27,8 +38,13 @@ pub fn (mut reader Reader) read_u32() u32 {
 }
 
 pub fn (mut reader Reader) read_u64() u64 {
+	size := sizeof(u64)
+
+	reader.is_oob(size)
+	if reader.oob { return 0 }
+
 	defer {
-		reader.offset += int(sizeof(u64))
+		reader.add_offset(sizeof(size))
 	}
 
 	bytes := reader.bytes
