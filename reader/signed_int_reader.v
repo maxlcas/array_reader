@@ -8,7 +8,7 @@ pub fn (mut reader Reader) read_i16() i16 {
 	if reader.oob { return 0 }
 
 	defer {
-		reader.add_offset(sizeof(size))
+		reader.add_offset(size)
 	}
 
 	bytes := reader.bytes
@@ -21,12 +21,12 @@ pub fn (mut reader Reader) read_i16() i16 {
 // read_i32 reads four bytes of data from reader.bytes and returns them as an i32, then increments reader.offset accordingly.
 pub fn (mut reader Reader) read_i32() i32 {
 	size := sizeof(i32)
-	
+
 	reader.is_oob(size)
 	if reader.oob { return 0 }
 
 	defer {
-		reader.add_offset(sizeof(size))
+		reader.add_offset(size)
 	}
 
 	bytes := reader.bytes
@@ -46,7 +46,7 @@ pub fn (mut reader Reader) read_i64() i64 {
 	if reader.oob { return 0 }
 
 	defer {
-		reader.add_offset(sizeof(size))
+		reader.add_offset(size)
 	}
 
 	bytes := reader.bytes

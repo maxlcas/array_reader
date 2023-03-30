@@ -8,7 +8,7 @@ pub fn (mut reader Reader) read_u16() u16 {
 	if reader.oob { return 0 }
 
 	defer {
-		reader.add_offset(sizeof(size))
+		reader.add_offset(size)
 	}
 
 	bytes := reader.bytes
@@ -47,7 +47,7 @@ pub fn (mut reader Reader) read_u64() u64 {
 	if reader.oob { return 0 }
 
 	defer {
-		reader.add_offset(sizeof(size))
+		reader.add_offset(size)
 	}
 
 	bytes := reader.bytes
