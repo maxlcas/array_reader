@@ -1,5 +1,9 @@
 module reader
 
+// Reader contains data for dealing with arrays
+// bytes: contains the byte array
+// offset: the current offset within the byte array
+// oob: if the offset is out of the bytes bounds
 pub struct Reader {
 	pub:
 	bytes  []u8
